@@ -127,3 +127,10 @@ print(f"The average number of games played for \
 teams ranking below 10 is {my_table4_filtered.aggregate(lambda x: sum(x)/len(x), 'games')}")
 print(f"The average number of games played for teams \
 ranking above or equal 10 is {my_table4_filtered_2.aggregate(lambda x: sum(x)/len(x), 'games')}")
+
+my_table3_player_filtered = my_table3.filter(lambda x: 'forward' in x['position'])
+my_table3_player_filtered_2 = my_table3.filter(lambda x: 'midfielder' in x['position'])
+print(f"The average number of passes made \
+by forwards {my_table3_player_filtered.aggregate(lambda x: sum(x)/len(x), 'passes')}")
+print(f"The average number of passes made \
+by midfielders {my_table3_player_filtered_2.aggregate(lambda x: sum(x)/len(x), 'passes')}")
